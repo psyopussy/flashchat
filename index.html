@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chattert</title>
+    <link rel="stylesheet" href="jspm_packages/github/twbs/bootstrap@3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!--/*
+    loading/importing/installing sails.io.js natively in aurelia is not possible?
+    alternatively we can use load the script versiobn oldskool way
+    */-->
+    <script type"text/javascript" src="assets/js/dependencies/sails.io.js"></script>
+    <script type="text/javascript">
+      io.sails.url = 'http://localhost:1337';
+    </script>
+
+
+
+
+  </head>
+
+  <body aurelia-app>
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+
+
+
+      System.config({
+
+      });
+      SystemJS.import('aurelia-bootstrapper');
+
+
+        /*
+      to prove that it works
+      */
+      io.socket.get('/chatroom?id=29', function gotResponse(body, response) {
+        console.log('Current messages: ', body.messages);
+        // TODO: repopulate chatbox on activity
+      })
+
+
+    </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<template>
+  <section>
+    <h2>${heading}</h2>
+    <h4>Showing last 10 messages</h4>
+    <div class="scroll" ref="chatbox">
+      <div  repeat.for="c of chats">
+        <div class="content ">${c.chat}</div>
+      </div>
+    </div>
+    <form submit.trigger="submit()">
+      <div>
+        <label></label>
+        <input type="text" value.bind="newMessage">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </section>
+</template>

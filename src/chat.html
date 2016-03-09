@@ -1,0 +1,29 @@
+<template>
+  <section>
+    <h2>${heading}</h2>
+    <h3>Welcome to room: ${roomName}</h3>
+
+    <div class="scroll" ref="chatbox" style="padding-bottom:20px">
+      <div  repeat.for="m of messages">
+        <div class="content "><strong>${m.nickname}:</strong>${m.content}</div>
+      </div>
+    </div>
+    <form submit.trigger="submit()">
+      <div>
+        <label></label>
+        <input type="text" value.bind="newMessage">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </section>
+
+<script>
+
+
+
+
+
+
+</script>
+
+</template>

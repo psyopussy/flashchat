@@ -1,0 +1,28 @@
+<template>
+  <section>
+    <h2>${heading}</h2>
+
+    <div class="scroll" >
+      <div  repeat.for="r of rooms">
+        <div class="content " data-id="${r.id}">${r.name}</div>
+      </div>
+    </div>
+    <form submit.trigger="submit()">
+      <div>
+        <label></label>
+        new room:<input type="text" value.bind="newRoom">
+
+      </div>
+      <div>
+        <label></label>
+        Set a nickname:<input type="text" value.bind="nickName">
+
+      </div>
+
+              <button type="submit">Submit</button>
+
+    </form>
+
+
+  </section>
+</template>
