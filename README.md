@@ -12,7 +12,7 @@ Crome only for now, needs a compatibilty lib of some sort.
 
 ## Running The App
 
-After setting up:  git@github.com:psyopussy/flashchatSailsApi.git:
+After setting up:   [git@github.com:psyopussy/flashchatSailsApi.git](git@github.com:psyopussy/flashchatSailsApi.git) :
 
 Follow these steps to run the app:
 
