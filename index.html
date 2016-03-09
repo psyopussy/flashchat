@@ -33,13 +33,19 @@
       });
       SystemJS.import('aurelia-bootstrapper');
 
+      io.socket.on('chatroom', function onServerSentEvent (msg) {
+        // TODO: natively call populate function on activity
 
+        // for now, the single most dirty hack in the history of all hacks:
+        location.reload();
+      });
         /*
       to prove that it works
       */
-      io.socket.get('/chatroom?id=29', function gotResponse(body, response) {
+      io.socket.get('/chatroom', function gotResponse(body, response) {
         console.log('Current messages: ', body.messages);
-        // TODO: repopulate chatbox on activity
+
+
       })
 
 

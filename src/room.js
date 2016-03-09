@@ -18,11 +18,9 @@ export class Room {
   constructor(http, router) {
     this.router = router;
 
-    if(typeof Cookie.get("nickname") != 'undefined' ){
+    if(typeof Cookie.get("nickName") != 'undefined' ){
       this.nickName = Cookie.get("nickName");
-      //alert("welcome back"+ this.nickName);
-    }else{
-        alert("welcome stranger");
+
     }
     http.configure(config => {
       config
@@ -65,6 +63,8 @@ export class Room {
     if( !this.newRoomId && this.newRoom == ""){
       alert('No room choosen or no new room specified');
       return;
+    }else{
+      Cookie.set('roomId',  this.newRoomId);
     }
 
     if( this.nickName == ""){
@@ -79,27 +79,34 @@ export class Room {
       var roomname = {
         name: this.newRoom
       }
-      this.http.fetch("chatroom", {
-        method: "post",
-        body: JSON.stringify(roomname)
-      }).then(response => {
-        this.isInserted = true;
-        this.statusCode = response.status;
-        this.activate();
-        return response.json();
-      }).then(newresultRoom => {
-        this.newRoomId = newresultRoom.id;
-      });
+
+      this.http.fetch(
+        "chatroom", {
+          method: "post",
+          body: JSON.stringify(roomname)
+        }
+      )
+      .then(
+
+
+
+        (response) => {
+          this.isInserted = true;
+          this.statusCode = response.status;
+          //console.log("resjsn:"+response.json());
+          return response.json().then(json => {
+            //console.log("json:"+json.id);
+
+            this.newRoomId = json.id;
+            Cookie.set('roomId',  this.newRoomId);
+          });
+
+        }
+      );
     }
 
     this.newRoom = "";
-
-    Cookie.set('roomId',  this.newRoomId);
-
-
-    alert("entering room: "+ this.newRoomId + " with nickname: " + this.nickName);
-
-
+  //  alert("entering room: "+ this.newRoomId + " with nickname: " + this.nickName);
     this.redirect();
   }
 }

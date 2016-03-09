@@ -23,16 +23,15 @@ export class Chat {
     console.log("params.roomid"+params.roomid);
     this.checkNick();
     this.checkRoomId();
-    return this.populate();
+    this.populate();
   }
 
   populate(){
-     this.chatApi.getRoom(this.roomId)
+      this.chatApi.getRoom(this.roomId)
       .then(room => {
         this.messages = room.messages;
-        console.log(room.messages);
-        this.roomName = room.name ;
-         return this.scrolbot();
+        this.roomName = room.name;
+       this.scrolbot();
       }
     ).catch(function(e) {
       console.log(e);
@@ -45,8 +44,8 @@ export class Chat {
 
 
   checkNick(){
-  //  alert("nickName ["+ Cookie.get("nickname") + "]");
-    if(typeof Cookie.get("nickname") != 'undefined' ){
+
+    if(typeof Cookie.get("nickName") != 'undefined' ){
       this.nickName = Cookie.get("nickName");
     //  alert("welcome back"+ this.nickName);
     }else{

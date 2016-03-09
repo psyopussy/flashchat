@@ -6,7 +6,6 @@ Very alpha-ish chat app.
 Relies on: [git@github.com:psyopussy/flashchatSailsApi.git](https://github.com/psyopussy/flashchatSailsApi)
 
 Chat is not even realtime for now, lacks native sails.io.js support.
-Crome only for now, needs a compatibilty lib of some sort.
 
 
 
