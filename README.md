@@ -1,7 +1,7 @@
 # flashchat
 (learning to fly)
 
-Very alpha statish chat app.
+Very alpha-ish chat app.
 
 Relies on: git@github.com:psyopussy/flashchatSailsApi.git
 
