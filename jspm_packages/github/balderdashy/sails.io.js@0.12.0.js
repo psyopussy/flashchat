@@ -1,1 +1,0 @@
-module.exports = require("github:balderdashy/sails.io.js@0.12.0/dist/sails.io.js");
